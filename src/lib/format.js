@@ -8,6 +8,7 @@ export function formatDate(value) {
 }
 
 export function formatRange(start, end) {
+  if (start === end) return formatDate(start)
   return `${formatDate(start)} — ${formatDate(end)}`
 }
 

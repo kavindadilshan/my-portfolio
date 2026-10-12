@@ -1,6 +1,7 @@
 import { Check, Copy, Mail, MapPin, Phone } from 'lucide-react'
 import { useState } from 'react'
 import { profile } from '../../data/profile'
+import { LinkedinIcon } from '../ui/BrandIcons'
 import { Button } from '../ui/Button'
 import { Reveal } from '../ui/Reveal'
 import { Section } from '../ui/Section'
@@ -37,16 +38,26 @@ export function Contact({ index }) {
                 as I can.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href={`mailto:${profile.email}`} icon={Mail}>
-                  Say hello
-                </Button>
-                <button
-                  onClick={copyEmail}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold transition hover:border-accent/50 hover:text-accent"
-                >
-                  {copied ? <Check size={16} /> : <Copy size={16} />}
-                  {copied ? 'Copied!' : 'Copy email'}
-                </button>
+                {profile.email ? (
+                  <>
+                    <Button href={`mailto:${profile.email}`} icon={Mail}>
+                      Say hello
+                    </Button>
+                    <button
+                      onClick={copyEmail}
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold transition hover:border-accent/50 hover:text-accent"
+                    >
+                      {copied ? <Check size={16} /> : <Copy size={16} />}
+                      {copied ? 'Copied!' : 'Copy email'}
+                    </button>
+                  </>
+                ) : (
+                  profile.socials.linkedin && (
+                    <Button href={profile.socials.linkedin} icon={LinkedinIcon}>
+                      Message me on LinkedIn
+                    </Button>
+                  )
+                )}
               </div>
             </div>
             <div className="space-y-4">

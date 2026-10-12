@@ -30,7 +30,11 @@ All content lives in `src/data/profile.js`. Components must not be edited to cha
    - Achievements: start with a strong verb, lead with impact, include metrics when the user gave them. Lightly polish grammar but **never invent facts, numbers, employers, or dates**. If something important is missing, ask.
    - Bio: 2–3 short paragraphs in first person, each a separate string.
    - `about.highlights`: derive only from given facts (e.g. years of experience computed from the earliest job start).
+   - Follow the **Positioning** note in `CLAUDE.md` (frontend-first; backend kept minimal).
    - Group skills sensibly (Frontend, Backend, Database, DevOps & Cloud, Tools…). Only add `level` if the user asks for skill bars.
+   - Projects: square app icons go in `public/projects/<slug>.png` as `logo`; screenshots as `image`. Fill `start`/`end` and `context` (employer or school) when known.
+   - Screenshots of LinkedIn truncate text ("… more"). Use only the visible part, and tell the user which descriptions need expanding.
+   - Never publish LinkedIn "Open to work — Recruiters only" status on the site without asking; it is private to recruiters.
    - Unknown optional fields → `''` so the UI hides them. Remove placeholder entries that the user has no data for.
    - If a whole section has no data (e.g. no certifications), remove its entry from the `sections` array instead of leaving placeholders.
 4. Remove the `// TODO` comment on every value you fill in.

@@ -8,6 +8,7 @@ export function Education({ index }) {
   const items = education.map((edu) => ({
     key: `${edu.institution}-${edu.start}`,
     icon: GraduationCap,
+    logo: edu.logo,
     title: edu.degree,
     subtitle: edu.institution,
     meta: formatRange(edu.start, edu.end),
@@ -27,6 +28,19 @@ export function Education({ index }) {
               </li>
             ))}
           </ul>
+        )}
+        {edu.image && (
+          <figure className="mt-5 max-w-md overflow-hidden rounded-xl border border-border">
+            <img
+              src={edu.image}
+              alt={edu.imageCaption || `${edu.institution} photo`}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+            {edu.imageCaption && (
+              <figcaption className="bg-bg/50 px-4 py-2.5 text-xs text-muted">{edu.imageCaption}</figcaption>
+            )}
+          </figure>
         )}
       </>
     ),

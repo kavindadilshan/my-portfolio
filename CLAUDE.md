@@ -2,6 +2,8 @@
 
 Personal portfolio site: a single-page, data-driven React app showing bio, career, education, skills, projects, certifications and contact.
 
+**Positioning:** the owner presents as a **Frontend Developer** (web + mobile: React, React Native, Flutter). Keep backend low-key — the only backend skills listed are Java, Spring Boot, Spring MVC, Hibernate and REST APIs, in a "Backend" group near the end. Don't add backend frameworks (e.g. Java Spring, Laravel) to project or job tech tags, or describe work as "back end" / "end to end".
+
 ## Stack
 
 - **React 19 + Vite 8** (plain JavaScript/JSX, ES modules, no TypeScript)
@@ -45,6 +47,7 @@ public/                    # avatar, resume PDF, project screenshots go here
 5. **Colors only through theme tokens**: `bg-bg`, `bg-surface`, `border-border`, `text-fg`, `text-muted`, `text-accent`, `accent-2`, plus utilities `card`, `text-gradient`, `bg-grid`. Never hard-code hex values in components. Palette changes happen in `:root` / `.dark` in `index.css`.
 6. **Dark mode** is class-based (`.dark` on `<html>`), set pre-paint by the inline script in `index.html` and toggled by `useTheme`. Both themes must look right.
 7. **Dates** are strings `'YYYY-MM'` or `'YYYY'`; `end: ''` means "Present". Lists are newest first.
+   Projects support `logo` (square, shown contained) or `image` (screenshot, full-bleed), `start`/`end`/`context`, `platforms` ([`mobile`, `web`] — drives the All/Mobile/Web filter tabs and card badges), `metrics` (stat chips) and `links` ([{ label, url }] for App Store / Google Play / Website); non-featured projects keep file order. Certifications support `expires` and `badge`. Experience/education entries support `logo` (shown beside the title); education also supports `image` + `imageCaption`. Images live in `public/projects/` and `public/certifications/`.
 8. Respect `prefers-reduced-motion` (use `useReducedMotion` / `Reveal`), keep it responsive from 360px up, and give icon-only links an `aria-label`.
 
 ## Code style
